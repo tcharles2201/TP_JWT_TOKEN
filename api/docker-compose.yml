@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  node:
+    container_name: project_node
+    image: 'node:latest'
+    working_dir: /var/www
+    command:
+        - /bin/sh
+        - '-c'
+        - 'npm install && npm start'
+    ports:
+      - '3000:3000'
+    volumes:
+      - './src:/var/www'
+    links:
+      - mongo
+    environment:
+      - URL_MONGO=mongodb://api:docker1234@mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=api
+      - MONGO_INITDB_ROOT_PASSWORD=docker1234
