@@ -71,34 +71,6 @@ exports.userRegister = async (req, res, next) => {
 
            })
 
-        /*let newUser = new User(req.body);
-
-        newUser.save((error, user) => {
-
-            if(error) {
-
-                res.status(500);
-                console.log(error);
-                res.json({
-
-                    message: "Erreur serveur."
-
-                });
-
-            }
-            else {
-
-                res.status(201);
-                res.json({
-
-                    message: `utilisateur créé :' ${user.email}`
-
-                });
-
-            }
-
-        });*/
-  
 }
 
 exports.userLogin = (req, res, next) => {
